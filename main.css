@@ -1,3 +1,7 @@
+body {
+  user-select: none;
+}
+
 h1 {
   outline: 1px solid #f00;
 }
@@ -8,6 +12,7 @@ h1 {
   background-color: #f00;
   margin: auto;
   color: #fff;
+  cursor: pointer;
 }
 
 .container {
@@ -15,6 +20,14 @@ h1 {
   margin: auto;
   outline: 1px solid #00f;
   text-align: center;
+}
+
+#userInput {
+  width: 90px;
+  text-align: center;
+  font-size: 36px;
+  border: none;
+  color: #000;
 }
 
 #a,
