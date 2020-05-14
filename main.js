@@ -28,12 +28,13 @@ function compute(operandA, operation, operandB) {
   if (operation === "+") return operandA + operandB;
   if (operation === "-") return operandA - operandB;
   if (operation === "*") return operandA * operandB;
-  if (operation === "/") return (operandA / operandB).toFixed(2);
+  if (operation === "/") return (operandA / operandB).toFixed(1);
 }
 
 // DOM elements
 const a = document.getElementById("a");
 const b = document.getElementById("b");
+const form = document.getElementById("form");
 const operationElem = document.getElementById("operation");
 const assertButton = document.getElementById("btn");
 const userInput = document.getElementById("userInput");
@@ -58,7 +59,8 @@ function newGame() {
 
 newGame();
 
-assertButton.addEventListener("click", () => {
+function submit(e) {
+  e.preventDefault();
   const userAnswer = userInput.value;
 
   // computing correct answer
@@ -85,4 +87,7 @@ assertButton.addEventListener("click", () => {
   // reset
   userInput.value = "";
   newGame();
-});
+}
+
+assertButton.addEventListener("click", submit);
+form.addEventListener("submit", submit);
