@@ -2,6 +2,14 @@ h1 {
   outline: 1px solid #f00;
 }
 
+#btn {
+  width: 200px;
+  padding: 10px;
+  background-color: #f00;
+  margin: auto;
+  color: #fff;
+}
+
 .container {
   width: 960px;
   margin: auto;
