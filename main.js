@@ -1,3 +1,34 @@
+// State
+// board variables
+let wins = 0;
+let losses = 0;
+
+// game variables
+let operandA;
+let operandB;
+let operation;
+
+// DOM elements
+const a = document.getElementById("a");
+const b = document.getElementById("b");
+const form = document.getElementById("form");
+const operationElem = document.getElementById("operation");
+const assertButton = document.getElementById("btn");
+const userInput = document.getElementById("userInput");
+const winsElement = document.getElementById("wins");
+const lossesElement = document.getElementById("losses");
+const historyElement = document.getElementById("history");
+
+// functions
+
+// computing answer
+function compute(operandA, operation, operandB) {
+  if (operation === "+") return operandA + operandB;
+  if (operation === "-") return operandA - operandB;
+  if (operation === "*") return operandA * operandB;
+  if (operation === "/") return (operandA / operandB).toFixed(1);
+}
+
 // generators
 function generateNumber() {
   // only positive numbers
@@ -13,34 +44,6 @@ function generateOperation() {
   const picker = parseInt(Math.random() * operations.length);
   return operations[picker];
 }
-
-// board variables
-let wins = 0;
-let losses = 0;
-
-// game variables
-let operandA;
-let operandB;
-let operation;
-
-// computing answer
-function compute(operandA, operation, operandB) {
-  if (operation === "+") return operandA + operandB;
-  if (operation === "-") return operandA - operandB;
-  if (operation === "*") return operandA * operandB;
-  if (operation === "/") return (operandA / operandB).toFixed(1);
-}
-
-// DOM elements
-const a = document.getElementById("a");
-const b = document.getElementById("b");
-const form = document.getElementById("form");
-const operationElem = document.getElementById("operation");
-const assertButton = document.getElementById("btn");
-const userInput = document.getElementById("userInput");
-const winsElement = document.getElementById("wins");
-const lossesElement = document.getElementById("losses");
-const historyElement = document.getElementById("history");
 
 function newGame() {
   operandA = generateNumber();
