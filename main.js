@@ -67,15 +67,17 @@ assertButton.addEventListener("click", () => {
   // push to history element
   const gameState = document.createElement("div");
 
+  // result state
+  const success = `<span class="badge success">Success</span> ${operandA} ${operation} ${operandB} = ${userAnswer}`;
+  const failure = `<span class="badge failure">Failure</span> ${operandA} ${operation} ${operandB} = ${userAnswer}, correct answer is ${answer}`;
+
   // assertion
   if (userAnswer == answer) {
     wins++;
-    gameState.innerHTML = `Success: ${operandA} ${operation} ${operandB} = ${userAnswer}`;
-    alert("congrats");
+    gameState.innerHTML = success;
   } else {
     losses++;
-    gameState.innerHTML = `Error: ${operandA} ${operation} ${operandB} = ${userAnswer}`;
-    alert(`correct answer is "${answer}", your answer "${userAnswer}"`);
+    gameState.innerHTML = failure;
   }
 
   historyElement.prepend(gameState);
