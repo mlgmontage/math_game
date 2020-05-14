@@ -39,6 +39,7 @@ const assertButton = document.getElementById("btn");
 const userInput = document.getElementById("userInput");
 const winsElement = document.getElementById("wins");
 const lossesElement = document.getElementById("losses");
+const historyElement = document.getElementById("history");
 
 function newGame() {
   operandA = generateNumber();
@@ -63,14 +64,21 @@ assertButton.addEventListener("click", () => {
   // computing correct answer
   const answer = compute(operandA, operation, operandB);
 
+  // push to history element
+  const gameState = document.createElement("div");
+
   // assertion
   if (userAnswer == answer) {
     wins++;
+    gameState.innerHTML = `Success: ${operandA} ${operation} ${operandB} = ${userAnswer}`;
     alert("congrats");
   } else {
     losses++;
+    gameState.innerHTML = `Error: ${operandA} ${operation} ${operandB} = ${userAnswer}`;
     alert(`correct answer is "${answer}", your answer "${userAnswer}"`);
   }
+
+  historyElement.prepend(gameState);
 
   // reset
   userInput.value = "";
