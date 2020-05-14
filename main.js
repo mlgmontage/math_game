@@ -1,16 +1,14 @@
+// generators
 function generateNumber() {
-  const random = parseInt(Math.random() * 10);
+  const topValue = 10;
+  const random = parseInt(Math.random() * topValue);
   return random;
 }
 
-function assert(output, exceptedOutput) {
-  return output === exceptedOutput ? true : false;
-}
-
+// DOM elements
 const a = document.getElementById("a");
 const b = document.getElementById("b");
 const assertButton = document.getElementById("btn");
-
 const userInput = document.getElementById("userInput");
 
 function newGame() {
@@ -28,7 +26,7 @@ assertButton.addEventListener("click", () => {
   const operandB = parseInt(b.innerText);
   const userAnswer = parseInt(userInput.value);
   const answer = operandA + operandB;
-  if (assert(userAnswer, answer)) {
+  if (userAnswer === answer) {
     alert("congrats");
   } else {
     alert(`correct answer is ${answer}`);

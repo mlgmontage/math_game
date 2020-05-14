@@ -6,6 +6,10 @@ h1 {
   outline: 1px solid #f00;
 }
 
+#board {
+  text-align: center;
+}
+
 #btn {
   width: 200px;
   padding: 10px;
